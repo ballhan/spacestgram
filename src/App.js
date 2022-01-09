@@ -36,11 +36,11 @@ const App = () => {
         <div className="loading-container">
           <ShimmerPostItem card title imageWidth={200} imageHeight={200} />
         </div>
+      ) : imageData ? (
+        <ImageCard imageData={imageData} />
       ) : (
-        ""
+        <h1>Sorry, no image found</h1>
       )}
-
-      {imageData ? <ImageCard imageData={imageData} /> : ""}
     </div>
   );
 };
