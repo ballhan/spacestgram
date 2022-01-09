@@ -2,11 +2,10 @@
 
 [Live demo](https://nostalgic-euclid-a1fd8d.netlify.app/)
 
-This app fetch data from NASA’s APOD API and display the resulting images with title and date. 
-Use can like or unlike an image by clicking the heart icon. 
+This app fetches data from NASA’s APOD API and display the resulting image with its title and date. 
+User can like or unlike an image by clicking the heart icon. 
 
-
-This project is built using React, react-shimmer-effects (loading effect), material ui (card component)
+This project is built using React, react-shimmer-effects (loading effect), material-ui (card component)
 
 It is deployed using Netlify
 
