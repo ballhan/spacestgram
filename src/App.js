@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
-function App() {
+import Header from "./components/Header/Header";
+import ImageCard from "./components/ImageCard/ImageCard";
+
+const URL = "https://api.nasa.gov/planetary/apod";
+const API_KEY = "489PIsV43dH9EODRPLlVHJQe3vjRn9Tb5lejVrEM";
+
+const App = () => {
+  const [imageData, setImageData] = useState(null);
+
+  useEffect(() => {
+    fetchImage();
+
+    async function fetchImage() {
+      const res = await fetch(`${URL}?api_key=${API_KEY}`);
+      const data = await res.json();
+      setImageData(data);
+    }
+  }, []);
+
+  if (!imageData) return <div />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+      <Header />
+      <ImageCard imageData={imageData} />
     </div>
   );
-}
-
+};
 export default App;
