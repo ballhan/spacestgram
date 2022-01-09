@@ -14,19 +14,19 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchImage();
-
     async function fetchImage() {
       setLoading(true);
       try {
         const res = await fetch(`${URL}?api_key=${API_KEY}`);
         const data = await res.json();
-        setLoading(false);
         setImageData(data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
     }
+
+    fetchImage();
   }, []);
 
   return (
